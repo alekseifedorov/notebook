@@ -15,7 +15,7 @@ public interface NoteRepository extends JpaRepository<NoteEntity, Long> {
 
     @Query("SELECT DISTINCT n FROM NoteEntity n " +
         "LEFT JOIN FETCH n.tags t " +
-        "WHERE n.content LIKE %:keyword% OR n.notebook.id = :notebook")
+        "WHERE n.content LIKE %:keyword% AND n.notebook.id = :notebook")
     List<NoteEntity> findNotebooksByKeywordInNotes(@Param("keyword") String keyword,
                                                        @Param("notebook") Long notebook);
 }

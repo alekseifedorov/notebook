@@ -6,6 +6,7 @@ import my.assignment.entity.enumeration.Color;
 import my.assignment.model.Note;
 import my.assignment.model.Notebook;
 import my.assignment.model.ShortNote;
+import my.assignment.model.ShortNotebook;
 import my.assignment.model.Tag;
 import my.assignment.repository.NotebookRepository;
 import my.assignment.repository.NoteRepository;
@@ -56,11 +57,12 @@ class NotebookIT {
     void shouldFindByTagsAndKeyword() {
 
         var tag = tagService.createOrUpdate(Tag.builder().color(Color.BLUE).name(FIRST_TAG_NAME).build());
-        var note = noteService.createOrUpdate(Note.builder().title("First note").tags(List.of(tag))
-            .content("Shop list").build());
         var notebook = notebookService.createOrUpdate(
-            Notebook.builder().notes(Set.of(ShortNote.builder().id(note.getId()).build())).tags(Set.of(tag))
+            Notebook.builder().tags(Set.of(tag))
                 .description("Notebook 1").title("Title 1").build());
+        noteService.createOrUpdate(Note.builder().title("First note").tags(List.of(tag))
+                .notebook(ShortNotebook.builder().id(notebook.getId()).build())
+            .content("Shop list").build());
 
         var tag2 = tagService.createOrUpdate(Tag.builder().color(Color.BLUE).name("ToDo item 2").build());
         var note2 = noteService.createOrUpdate(Note.builder().title("Second note").content("Thoughts").build());

@@ -43,7 +43,7 @@ public class NoteController {
     }
 
     @PutMapping(value = "/{notebookId}/notes/{id}")
-    @Operation(description = "Create a note")
+    @Operation(description = "Update a note")
     public Note updateNote(@PathVariable("notebookId") Long notebookId, @RequestParam("id") Long noteId,
                            @RequestBody NoteCreateOrUpdateRequest request) {
         var tags = request.getTags().stream()
