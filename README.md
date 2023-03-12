@@ -31,6 +31,6 @@
     -  gradlew bootRun
     -  docker-compose up  (the docker image must be built)
 
-4. The Swagger 2.0 specification of the service can be found on The Swagger / OpenAPI specification of the service can be found on http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#
+4. The Swagger 2.0 / OpenAPI specification of the service can be found on http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#
 
 
