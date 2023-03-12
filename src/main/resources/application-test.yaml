@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    host: localhost
+    password: sa
+    username: password
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    platform: org.hibernate.dialect.H2Dialect
+
+init-environment: false

@@ -1,0 +1,12 @@
+version: '2'
+services:
+    notebook:
+        container_name: notebook
+        image: eta-assignment:v1.0.0
+        ports:
+            - 8080:8080
+        networks:
+            - notebook-network
+networks:
+    notebook-network:
+        driver: bridge
