@@ -1,7 +1,6 @@
 package my.assignment.entity;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -29,7 +28,7 @@ public class NotebookEntity {
     private String description;
 
     @OneToMany
-    private List<NoteEntity> notes;
+    private Set<NoteEntity> notes;
 
     @ManyToMany
     @ToString.Exclude

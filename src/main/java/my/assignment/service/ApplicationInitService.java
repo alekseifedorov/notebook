@@ -1,6 +1,7 @@
 package my.assignment.service;
 
 import java.util.List;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import my.assignment.entity.enumeration.Color;
@@ -41,7 +42,7 @@ public class ApplicationInitService implements ApplicationListener<ApplicationRe
         var tag = tagService.createOrUpdate(Tag.builder().color(Color.BLUE).name("ToDo1").build());
 
         var notebook = notebookService.createOrUpdate(
-            Notebook.builder().tags(List.of(tag))
+            Notebook.builder().tags(Set.of(tag))
                 .description("Notebook 1").title("Title 1").build());
 
         noteService.createOrUpdate(Note.builder().title("First note")

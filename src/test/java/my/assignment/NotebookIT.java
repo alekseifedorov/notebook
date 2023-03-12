@@ -59,13 +59,13 @@ class NotebookIT {
         var note = noteService.createOrUpdate(Note.builder().title("First note").tags(List.of(tag))
             .content("Shop list").build());
         var notebook = notebookService.createOrUpdate(
-            Notebook.builder().notes(List.of(ShortNote.builder().id(note.getId()).build())).tags(List.of(tag))
+            Notebook.builder().notes(Set.of(ShortNote.builder().id(note.getId()).build())).tags(Set.of(tag))
                 .description("Notebook 1").title("Title 1").build());
 
         var tag2 = tagService.createOrUpdate(Tag.builder().color(Color.BLUE).name("ToDo item 2").build());
         var note2 = noteService.createOrUpdate(Note.builder().title("Second note").content("Thoughts").build());
         notebookService.createOrUpdate(
-            Notebook.builder().notes(List.of(ShortNote.builder().id(note2.getId()).build())).tags(List.of(tag2))
+            Notebook.builder().notes(Set.of(ShortNote.builder().id(note2.getId()).build())).tags(Set.of(tag2))
                 .description("Notebook 1").title("Title 1").build());
 
         var result = notebookService.findByTags(Set.of(FIRST_TAG_NAME));

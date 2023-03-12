@@ -31,7 +31,7 @@ public class NotebookController {
     public Notebook create(@RequestBody NotebookCreateOrUpdateRequest request) {
         var tags = request.getTags().stream()
             .map(tagService::findOrCreate)
-            .collect(Collectors.toList());
+            .collect(Collectors.toSet());
 
         return notebookService.createOrUpdate(Notebook.builder().description(request.getDescription())
             .title(request.getTitle()).tags(tags).build());
@@ -42,7 +42,7 @@ public class NotebookController {
     public Notebook update(@RequestBody NotebookCreateOrUpdateRequest request, @RequestParam("id") Long id) {
         var tags = request.getTags().stream()
             .map(tagService::findOrCreate)
-            .collect(Collectors.toList());
+            .collect(Collectors.toSet());
 
         return notebookService.createOrUpdate(Notebook.builder().description(request.getDescription())
             .title(request.getTitle()).id(id).tags(tags).build());

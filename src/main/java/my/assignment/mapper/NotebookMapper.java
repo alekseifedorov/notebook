@@ -6,8 +6,9 @@ import my.assignment.model.Notebook;
 import my.assignment.model.ShortNotebook;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = NoteMapper.class, unmappedTargetPolicy = ReportingPolicy.ERROR)
 public interface NotebookMapper {
 
     NotebookEntity toEntity(Notebook note);
@@ -17,8 +18,6 @@ public interface NotebookMapper {
     ShortNotebook toShort(NotebookEntity entity);
 
     List<Notebook> fromEntities(List<NotebookEntity> entity);
-
-    List<ShortNotebook> fromEntitiesToShorts(List<NotebookEntity> entity);
 
     void updateEntity(Notebook dto, @MappingTarget NotebookEntity entity);
 }

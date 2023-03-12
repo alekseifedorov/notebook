@@ -1,7 +1,7 @@
 package my.assignment.dto;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,5 +15,5 @@ public class NotebookCreateOrUpdateRequest {
     private String title;
     private String description;
     @Builder.Default
-    private List<String> tags = new ArrayList<>();
+    private Set<String> tags = new HashSet<>();
 }

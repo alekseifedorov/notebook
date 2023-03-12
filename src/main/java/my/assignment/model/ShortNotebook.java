@@ -1,7 +1,6 @@
 package my.assignment.model;
 
 import java.time.LocalDate;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,8 +17,6 @@ public class ShortNotebook {
     private String title;
 
     private String description;
-
-    private List<Tag> tags;
 
     private LocalDate createdOn;
 

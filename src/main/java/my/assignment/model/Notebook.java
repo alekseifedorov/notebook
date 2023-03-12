@@ -1,9 +1,8 @@
 package my.assignment.model;
 
 import java.time.LocalDate;
+import java.util.Set;
 import lombok.*;
-
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,9 +16,9 @@ public class Notebook {
 
     private String description;
 
-    private List<ShortNote> notes;
+    private Set<ShortNote> notes;
 
-    private List<Tag> tags;
+    private Set<Tag> tags;
 
     private LocalDate createdOn;
 
