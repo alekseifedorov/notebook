@@ -6,6 +6,7 @@
     - Lombok
     - MapStruct
     - JUnit 5
+    - >= JDK 11
 
    The list of entities is following:
     - NotebookEntity
